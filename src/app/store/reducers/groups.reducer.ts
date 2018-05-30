@@ -38,7 +38,6 @@ export function reducer(state = initialState,
     }
 
     case groupActions.FETCH_GROUP: {
-      console.log(action.payload);
       return {
         ...state,
         loading: true,

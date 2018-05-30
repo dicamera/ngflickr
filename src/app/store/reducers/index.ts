@@ -40,7 +40,6 @@ export const getGroupsSelectedEntity = createSelector(getGroupsState, groups.get
 export const getGroupEntities = createSelector(getGroupsState, groups.getGroupEntities);
 
 export const getGroup = createSelector(getGroupEntities, getGroupsSelectedEntity, (entities, selectedEntity) => {
-  console.log(entities[selectedEntity]);
   return entities[selectedEntity];
 });
 

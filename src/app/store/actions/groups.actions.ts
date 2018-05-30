@@ -21,7 +21,6 @@ export class FetchGroup implements Action {
   readonly type = FETCH_GROUP;
 
   constructor(public payload: any) {
-    console.log(payload);
   }
 }
 

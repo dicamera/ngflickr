@@ -19,18 +19,22 @@ import {PhotosComponent} from './photos/photos.component';
 
 import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+
 import {reducers, effects} from './store';
-import { TabsComponent } from './tabs/tabs.component';
+
+
+import {TabsComponent} from './tabs/tabs.component';
 import {RouterModule, Routes} from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { GroupsComponent } from './groups/groups.component';
+import {HomeComponent} from './home/home.component';
+import {GroupsComponent} from './groups/groups.component';
 import {FormsModule} from '@angular/forms';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'photos', component: PhotosComponent},
   {path: 'groups', component: GroupsComponent}
-]
+];
 
 @NgModule({
   declarations: [
@@ -58,7 +62,8 @@ const routes: Routes = [
     MatMenuModule,
     HttpClientModule,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot(effects)
+    EffectsModule.forRoot(effects),
+    StoreDevtoolsModule.instrument({maxAge: 40})
   ],
   providers: [],
   bootstrap: [AppComponent]

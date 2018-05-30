@@ -52,13 +52,7 @@ export class FlickrService {
         format: 'json',
         nojsoncallback: '1'
       }
-    }).pipe(
-      map(g => {
-        console.log(g);
-        return g;
-      })
-    )
-      ;
+    });
   }
 
   search(term: string): Observable<any> {
