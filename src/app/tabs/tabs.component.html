@@ -1,0 +1,8 @@
+<nav mat-tab-nav-bar>
+  <div mat-tab-link *ngFor="let navItem of navItems"
+       routerLinkActive #rla="routerLinkActive"
+       [active]="rla.isActive" [routerLink]="navItem.location">
+    <mat-icon>{{ navItem.icon }}</mat-icon>
+    <span >{{navItem.label}}</span>
+  </div>
+</nav>

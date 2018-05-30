@@ -1,0 +1,12 @@
+<app-tabs></app-tabs>
+<div class="grid-wrapper">
+  <mat-card class="photo" *ngFor="let photo of photos$ | async"
+            [style.backgroundImage]="'url(' + photo.url_t + ')'">
+    <div class="info">
+      <div class="title">{{photo.ownername}}</div>
+      <div class="year">{{photo.views}} Views</div>
+    </div>
+  </mat-card>
+</div>
+<button mat-button (click)="getMorePhotos()">More photos</button>
+
