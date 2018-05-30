@@ -24,8 +24,8 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>Ng Flicrk</span>
-      <input type="text"/>
-      <button type="button" aria-label="Search" mat-icon-button>
+      <input type="text" #searchBox value="china">
+      <button type="button" aria-label="Search" mat-icon-button (click)="onSearch()">
         <mat-icon aria-label="Search icon">search</mat-icon>
       </button>
     </mat-toolbar>

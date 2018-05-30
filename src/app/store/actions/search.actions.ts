@@ -8,6 +8,8 @@ export const SEARCH_SUCCESS = '[Search] Perform Search success';
 
 export class Search implements Action {
   readonly type = SEARCH;
+  constructor(public payload: any) {
+  }
 }
 
 export class SearchPhotosFail implements Action {

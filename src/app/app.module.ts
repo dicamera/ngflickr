@@ -12,7 +12,7 @@ import {
   MatListModule,
   MatGridListModule,
   MatCardModule,
-  MatMenuModule, MatTabsModule
+  MatMenuModule, MatTabsModule, MatExpansionModule
 } from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
 import {PhotosComponent} from './photos/photos.component';
@@ -24,6 +24,7 @@ import { TabsComponent } from './tabs/tabs.component';
 import {RouterModule, Routes} from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { GroupsComponent } from './groups/groups.component';
+import {FormsModule} from '@angular/forms';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -43,8 +44,10 @@ const routes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
+    FormsModule,
     LayoutModule,
     MatTabsModule,
+    MatExpansionModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,

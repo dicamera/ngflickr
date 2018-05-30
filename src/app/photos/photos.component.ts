@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Store} from '@ngrx/store';
-import * as fromStore from '../store';
 import {IPhoto} from '../model/photo.model';
 import {Observable} from 'rxjs';
+import {PhotosService} from '../services/photos.service';
 
 @Component({
   selector: 'photos',
@@ -13,17 +12,15 @@ export class PhotosComponent implements OnInit {
 
   photos$: Observable<IPhoto[]>;
 
-  constructor(private store: Store<fromStore.FlickrState>) {
+  constructor(private service: PhotosService) {
   }
 
   ngOnInit() {
-    this.photos$ = this.store.select(fromStore.getPhotos);
-    this.store.dispatch(new fromStore.FetchMorePhotos());
+    this.photos$ = this.service.getPhotos();
   }
 
   getMorePhotos() {
-
-    this.store.dispatch(new fromStore.FetchMorePhotos());
+    this.service.getMorePhotos();
   }
 
 }

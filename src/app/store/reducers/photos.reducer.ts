@@ -32,14 +32,22 @@ export function reducer(state = initialState,
       };
     }
 
+    case photosActions.FETCH_PHOTOS: {
+      return {
+        ...state,
+        loading: true,
+        loaded: false
+      };
+    }
+
     case photosActions.FETCH_MORE_PHOTOS_SUCCESS: {
       const data = action.payload;
-      debugger;
+
       return {
         ...state,
         loading: false,
         loaded: true,
-        photo: state.photo.concat(data['photo'])
+        photo: action['flush'] ? data['photo'] : state.photo.concat(data['photo'])
       };
     }
 
@@ -60,3 +68,5 @@ export const getPhotosLoading = (state: PhotosState) => state.loading;
 export const getPhotosLoaded = (state: PhotosState) => state.loaded;
 export const getPhotosCurrentPage = (state: PhotosState) => state.page;
 export const getPhotos = (state: PhotosState) => state.photo;
+export const getPhotoCount = (state: PhotosState) => state.total;
+

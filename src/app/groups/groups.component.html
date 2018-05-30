@@ -1,4 +1,25 @@
 <app-tabs></app-tabs>
-<p>
-  groups works!
-</p>
+<!--<div class="grid-wrapper">-->
+  <!--<mat-card *ngFor="let group of groups$ | async">-->
+    <!--<div>-->
+      <!--<div>{{group.name}}</div>-->
+      <!--<div>{{group.members}} Members</div>-->
+    <!--</div>-->
+  <!--</mat-card>-->
+<!--</div>-->
+
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let group of groups$ | async" (opened)="fetch(group.nsid)">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{group.name}}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{group.members}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>{{group | json}}</p>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<button mat-button (click)="getMoreGroups()">More photos</button>

@@ -1,21 +1,21 @@
 import {Action} from '@ngrx/store';
-import {IPhoto} from '../../model/photo.model';
-import {Search, SearchPhotosFail, SearchPhotosSuccess} from './search.actions';
-import {IPhotos} from '../../services/model/photos.model';
+import {IPhotos} from '../../model/photos.model';
 
+export const FETCH_PHOTOS = '[Photos] Fetch Photos';
 export const FETCH_MORE_PHOTOS = '[Photos] Fetch More Photos';
 export const FETCH_MORE_PHOTOS_FAIL = '[Photos] Fetch More Photos fail';
 export const FETCH_MORE_PHOTOS_SUCCESS = '[Photos] Fetch More Photos success';
 
-  export interface ActionWithPayload extends Action {
-  payload?: any;
+export class FetchPhotos implements Action {
+  readonly type = FETCH_PHOTOS;
 }
 
-export class FetchMorePhotos implements ActionWithPayload {
+
+export class FetchMorePhotos implements Action {
   readonly type = FETCH_MORE_PHOTOS;
 }
 
-export class FetchMorePhotosFail implements ActionWithPayload {
+export class FetchMorePhotosFail implements Action {
   readonly type = FETCH_MORE_PHOTOS_FAIL;
 
   constructor(public payload: any) {
@@ -23,14 +23,14 @@ export class FetchMorePhotosFail implements ActionWithPayload {
 
 }
 
-export class FetchMorePhotosSuccess implements ActionWithPayload {
+export class FetchMorePhotosSuccess implements Action {
   readonly type = FETCH_MORE_PHOTOS_SUCCESS;
 
-  constructor(public payload: IPhotos) {
+  constructor(public payload: IPhotos, private flush?: Boolean) {
   }
 }
 
-export type PhotosAction = FetchMorePhotos | FetchMorePhotosFail | FetchMorePhotosSuccess;
+export type PhotosAction = FetchPhotos | FetchMorePhotos | FetchMorePhotosFail | FetchMorePhotosSuccess;
 
 
 

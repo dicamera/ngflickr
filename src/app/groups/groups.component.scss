@@ -1,0 +1,28 @@
+
+
+
+@media (min-width: 320px) {
+  .grid-wrapper {
+    display: grid;
+    grid-template-columns: 96%;
+    grid-row-gap: 12px;
+    grid-column-gap: 3.5%;
+    padding: 3%;
+  }
+}
+
+
+
+@media (min-width: 480px) {
+  .grid-wrapper {
+    display: grid;
+    grid-template-columns: 48% 48%;
+    grid-row-gap: 12px;
+    grid-column-gap: 3.5%;
+    padding: 3%;
+  }
+}
+
+
+
+

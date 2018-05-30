@@ -21,7 +21,9 @@ export function reducer(state = initialState,
     case searchActions.SEARCH: {
       return {
         ...state,
-        loading: true
+        loading: true,
+        loaded: false,
+        term: action.payload
       };
     }
 
@@ -45,4 +47,5 @@ export function reducer(state = initialState,
 
   return state;
 }
+
 export const getSearchTerm = (state: SearchState) => state.term;

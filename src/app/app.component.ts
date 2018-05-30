@@ -1,9 +1,12 @@
-import {Component} from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {map} from 'rxjs/operators';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {Observable} from 'rxjs';
 import {FlickrState} from './store/reducers';
 import {Store} from '@ngrx/store';
+import * as fromStore from './store';
+import {SearchService} from './services/search.service';
+
 
 @Component({
   selector: 'app-root',
@@ -16,10 +19,13 @@ export class AppComponent {
       map(result => result.matches)
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, private store: Store<FlickrState>) {
+  @ViewChild('searchBox') searchBox: ElementRef;
+
+
+  constructor(private breakpointObserver: BreakpointObserver, private searchService: SearchService) {
   }
 
-  onSearch(){
-    // this.store.dispatch()
+  onSearch() {
+    this.searchService.search(this.searchBox.nativeElement.value);
   }
 }
