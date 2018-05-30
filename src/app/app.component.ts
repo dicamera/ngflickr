@@ -6,6 +6,7 @@ import {FlickrState} from './store/reducers';
 import {Store} from '@ngrx/store';
 import * as fromStore from './store';
 import {SearchService} from './services/search.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -22,10 +23,14 @@ export class AppComponent {
   @ViewChild('searchBox') searchBox: ElementRef;
 
 
-  constructor(private breakpointObserver: BreakpointObserver, private searchService: SearchService) {
+  constructor(private breakpointObserver: BreakpointObserver, private searchService: SearchService, private router: Router) {
   }
 
   onSearch() {
     this.searchService.search(this.searchBox.nativeElement.value);
+  }
+
+  goHome() {
+    this.router.navigate(['/']);
   }
 }

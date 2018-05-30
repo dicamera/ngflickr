@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {IPhoto} from '../model/photo.model';
 import * as fromStore from '../store';
 import {Observable} from 'rxjs';
@@ -15,8 +15,9 @@ export class GroupsComponent implements OnInit {
 
 
   groups$: Observable<IGroup[]>;
+  selectedGroup$: Observable<any>;
 
-  constructor(private service: GroupsService){
+  constructor(private service: GroupsService) {
   }
 
 
@@ -28,8 +29,8 @@ export class GroupsComponent implements OnInit {
     this.service.getMoreGroups();
   }
 
-  fetch(id) {
-    console.log(id);
+  getGroup(id) {
+    this.selectedGroup$ = this.service.getGroup(id);
   }
 
 }

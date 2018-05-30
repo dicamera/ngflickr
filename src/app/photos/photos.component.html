@@ -1,5 +1,13 @@
 <app-tabs></app-tabs>
-<div class="grid-wrapper">
+<p *ngIf="!(photos$ | async)?.length">
+  Hi again!
+  <br>
+  In order to see some photos you have to enter a search term in the toolbar below. If everything goes according to the
+  plan, you'll get to see some photos.
+  if you want to see more photos click the botton at the top of the page once some photos are loaded. I was too lazy to
+  add behavior to the thumbnails themselves :P
+</p>
+<div class="grid-wrapper" *ngIf="!!(photos$ | async)?.length">
   <mat-card class="photo" *ngFor="let photo of photos$ | async"
             [style.backgroundImage]="'url(' + photo.url_t + ')'">
     <div class="info">
@@ -7,6 +15,6 @@
       <div class="year">{{photo.views}} Views</div>
     </div>
   </mat-card>
+  <button mat-button (click)="getMorePhotos()">More photos</button>
 </div>
-<button mat-button (click)="getMorePhotos()">More photos</button>
 

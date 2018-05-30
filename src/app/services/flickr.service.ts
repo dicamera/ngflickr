@@ -43,6 +43,24 @@ export class FlickrService {
     });
   }
 
+  getGroup(id: string): Observable<any> {
+    return this.http.get<IGroups>(url, {
+      params: {
+        method: 'flickr.groups.getInfo',
+        api_key: '4e5a84333af74e057945cf9474f899f0',
+        group_id: id,
+        format: 'json',
+        nojsoncallback: '1'
+      }
+    }).pipe(
+      map(g => {
+        console.log(g);
+        return g;
+      })
+    )
+      ;
+  }
+
   search(term: string): Observable<any> {
     return forkJoin([this.searchPhotos(term, 0), this.searchGroups(term, 0)]).pipe(
       map(res => {

@@ -36,6 +36,14 @@ export const getPhotoCount = createSelector(getPhotosState, photos.getPhotoCount
 
 
 export const getGroups = createSelector(getGroupsState, groups.getGroups);
+export const getGroupsSelectedEntity = createSelector(getGroupsState, groups.getSelectedEntity);
+export const getGroupEntities = createSelector(getGroupsState, groups.getGroupEntities);
+
+export const getGroup = createSelector(getGroupEntities, getGroupsSelectedEntity, (entities, selectedEntity) => {
+  console.log(entities[selectedEntity]);
+  return entities[selectedEntity];
+});
+
 export const getGroupsLoading = createSelector(getGroupsState, groups.getGroupsLoading);
 export const getGroupsLoaded = createSelector(getGroupsState, groups.getGroupsLoaded);
 export const getGroupsCurrentPage = createSelector(getGroupsState, groups.getGroupsCurrentPage);

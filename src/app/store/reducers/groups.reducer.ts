@@ -9,6 +9,8 @@ export interface GroupsState {
   total: number;
   loading: boolean;
   loaded: boolean;
+  selectedEntity: string;
+  entities: Object;
 }
 
 export const initialState: GroupsState = {
@@ -18,7 +20,10 @@ export const initialState: GroupsState = {
   group: [],
   total: 0,
   loading: false,
-  loaded: false
+  loaded: false,
+  entities: {},
+  selectedEntity: null
+
 };
 
 export function reducer(state = initialState,
@@ -29,6 +34,29 @@ export function reducer(state = initialState,
         ...state,
         loading: true,
         loaded: false
+      };
+    }
+
+    case groupActions.FETCH_GROUP: {
+      console.log(action.payload);
+      return {
+        ...state,
+        loading: true,
+        loaded: false,
+        selectedEntity: action.payload
+      };
+    }
+
+
+    case groupActions.FETCH_GROUP_SUCCESS: {
+      const data = action.payload;
+      const entity = {};
+      entity[data.id] = data;
+      return  {
+        ...state,
+        loading: false,
+        loaded: true,
+        entities: Object.assign({}, state.entities, entity)
       };
     }
 
@@ -67,5 +95,8 @@ export const getGroupsLoading = (state: GroupsState) => state.loading;
 export const getGroupsLoaded = (state: GroupsState) => state.loaded;
 export const getGroupsCurrentPage = (state: GroupsState) => state.page;
 export const getGroups = (state: GroupsState) => state.group;
+export const getGroupEntities = (state: GroupsState) => state.entities;
+export const getSelectedEntity = (state: GroupsState) => state.selectedEntity;
+
 export const getGroupCount = (state: GroupsState) => state.total;
 

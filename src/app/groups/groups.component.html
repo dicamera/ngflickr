@@ -1,15 +1,14 @@
 <app-tabs></app-tabs>
-<!--<div class="grid-wrapper">-->
-  <!--<mat-card *ngFor="let group of groups$ | async">-->
-    <!--<div>-->
-      <!--<div>{{group.name}}</div>-->
-      <!--<div>{{group.members}} Members</div>-->
-    <!--</div>-->
-  <!--</mat-card>-->
-<!--</div>-->
-
-<mat-accordion>
-  <mat-expansion-panel *ngFor="let group of groups$ | async" (opened)="fetch(group.nsid)">
+<p *ngIf="!(groups$ | async)?.length">
+  Hi again!
+  <br>
+  If you reading this, it is bacuase you didn't search anything yet, go and look for something!!!
+</p>
+<p *ngIf="!!(groups$ | async)?.length">
+ They are expandable panels, if you expand a panel I'll get more data and display it (and cache it in the store). I didn't have the time to make this pretty, sorry for that!
+</p>
+<mat-accordion *ngIf="!!(groups$ | async)?.length">
+  <mat-expansion-panel *ngFor="let group of groups$ | async" (opened)="getGroup(group.nsid)">
     <mat-expansion-panel-header>
       <mat-panel-title>
         {{group.name}}
@@ -18,8 +17,8 @@
         {{group.members}}
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <p>{{group | json}}</p>
+    <p>{{selectedGroup$ | async |json}}</p>
   </mat-expansion-panel>
+  <button mat-button (click)="getMoreGroups()">More Groups</button>
 </mat-accordion>
 
-<button mat-button (click)="getMoreGroups()">More photos</button>
