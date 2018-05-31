@@ -1,11 +1,9 @@
 import {Action} from '@ngrx/store';
 import {IGroups} from '../../model/groups.model';
 
-
 export const FETCH_GROUP = '[Groups] Fetch Single group';
 export const FETCH_GROUP_FAIL = '[Groups] Fetch Single fail';
 export const FETCH_GROUP_SUCCESS = '[Groups] Fetch Single success';
-
 
 export const FETCH_GROUPS = '[Groups] Fetch Groups';
 export const FETCH_MORE_GROUPS = '[Groups] Fetch More Groups';
@@ -19,25 +17,21 @@ export class FetchGroups implements Action {
 
 export class FetchGroup implements Action {
   readonly type = FETCH_GROUP;
-
   constructor(public payload: any) {
   }
 }
 
 export class FetchGroupFail implements Action {
   readonly type = FETCH_GROUP_FAIL;
-
   constructor(public payload: any) {
   }
 }
 
 export class FetchGroupSuccess implements Action {
   readonly type = FETCH_GROUP_SUCCESS;
-
   constructor(public payload: any, private flush?: Boolean) {
   }
 }
-
 
 export class FetchMoreGroups implements Action {
   readonly type = FETCH_MORE_GROUPS;
@@ -45,14 +39,12 @@ export class FetchMoreGroups implements Action {
 
 export class FetchMoreGroupsFail implements Action {
   readonly type = FETCH_MORE_GROUPS_FAIL;
-
   constructor(public payload: any) {
   }
 }
 
 export class FetchMoreGroupsSuccess implements Action {
   readonly type = FETCH_MORE_GROUPS_SUCCESS;
-
   constructor(public payload: IGroups, private flush?: Boolean) {
   }
 }

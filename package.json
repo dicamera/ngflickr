@@ -27,6 +27,8 @@
     "@ngrx/store": "^6.0.1",
     "@ngrx/store-devtools": "^6.0.1",
     "core-js": "^2.5.4",
+    "karma-junit-reporter": "^1.2.0",
+    "karma-mocha-reporter": "^2.2.5",
     "rxjs": "^6.0.0-rc.0",
     "zone.js": "^0.8.24"
   },

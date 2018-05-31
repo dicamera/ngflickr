@@ -2,9 +2,6 @@ import {Component, ElementRef, ViewChild} from '@angular/core';
 import {map} from 'rxjs/operators';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {Observable} from 'rxjs';
-import {FlickrState} from './store/reducers';
-import {Store} from '@ngrx/store';
-import * as fromStore from './store';
 import {SearchService} from './services/search.service';
 import {Router} from '@angular/router';
 

@@ -10,22 +10,18 @@ export class FetchPhotos implements Action {
   readonly type = FETCH_PHOTOS;
 }
 
-
 export class FetchMorePhotos implements Action {
   readonly type = FETCH_MORE_PHOTOS;
 }
 
 export class FetchMorePhotosFail implements Action {
   readonly type = FETCH_MORE_PHOTOS_FAIL;
-
   constructor(public payload: any) {
   }
-
 }
 
 export class FetchMorePhotosSuccess implements Action {
   readonly type = FETCH_MORE_PHOTOS_SUCCESS;
-
   constructor(public payload: IPhotos, private flush?: Boolean) {
   }
 }

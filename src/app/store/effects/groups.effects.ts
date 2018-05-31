@@ -3,13 +3,10 @@ import {Injectable} from '@angular/core';
 import {Effect, Actions} from '@ngrx/effects';
 import {map, switchMap, catchError, withLatestFrom} from 'rxjs/internal/operators';
 
-
 import * as groupsActions from '../actions/groups.actions';
-
 import {FlickrService} from '../../services/flickr.service';
 import {of} from 'rxjs';
 import {Store} from '@ngrx/store';
-import * as fromStore from '../index';
 
 @Injectable()
 export class GroupsEffects {
@@ -42,8 +39,6 @@ export class GroupsEffects {
           catchError(error => of(new groupsActions.FetchGroupFail(error)))
         );
       }
-
-
     })
   );
 }

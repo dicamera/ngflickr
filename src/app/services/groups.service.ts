@@ -6,7 +6,6 @@ import {FetchGroup, FetchMoreGroups} from '../store/actions';
 import {Observable} from 'rxjs';
 import {IGroup} from '../model/group.model';
 
-
 @Injectable(
   {providedIn: 'root'}
 )
@@ -27,8 +26,7 @@ export class GroupsService {
     return this.store.select(getGroup);
   }
 
-  getGroupCount(): Observable<number> {
+  getGroupCount(): Observable<string> {
     return this.store.select(getGroupCount);
-
   }
 }

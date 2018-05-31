@@ -1,5 +1,4 @@
 import * as searchActions from '../actions/search.actions';
-import {PhotosState} from './photos.reducer';
 
 export interface SearchState {
   perpage: number;

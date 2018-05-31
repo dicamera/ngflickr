@@ -21,7 +21,7 @@ export class PhotosService {
     this.store.dispatch(new FetchMorePhotos());
   }
 
-  getPhotoCount(): Observable<number> {
+  getPhotoCount(): Observable<string> {
     return this.store.select(getPhotoCount);
   }
 }

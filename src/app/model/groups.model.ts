@@ -6,5 +6,5 @@ export interface IGroups {
   pages: number;
   perpage: number;
   group: Array<IGroup>;
-  total: number;
+  total: string;
 }

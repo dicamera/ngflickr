@@ -6,7 +6,7 @@ export interface GroupsState {
   pages: number;
   perpage: number;
   group: Array<IGroup>;
-  total: number;
+  total: string;
   loading: boolean;
   loaded: boolean;
   selectedEntity: string;
@@ -18,7 +18,7 @@ export const initialState: GroupsState = {
   pages: 0,
   perpage: 0,
   group: [],
-  total: 0,
+  total: null,
   loading: false,
   loaded: false,
   entities: {},
@@ -45,7 +45,6 @@ export function reducer(state = initialState,
         selectedEntity: action.payload
       };
     }
-
 
     case groupActions.FETCH_GROUP_SUCCESS: {
       const data = action.payload;

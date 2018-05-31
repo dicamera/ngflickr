@@ -6,7 +6,7 @@ export interface PhotosState {
   pages: number;
   perpage: number;
   photo: Array<IPhoto>;
-  total: number;
+  total: string;
   loading: boolean;
   loaded: boolean;
 }
@@ -16,7 +16,7 @@ export const initialState: PhotosState = {
   pages: 0,
   perpage: 0,
   photo: [],
-  total: 0,
+  total: '',
   loading: false,
   loaded: false
 };

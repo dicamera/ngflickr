@@ -2,12 +2,12 @@
 export interface IGroup {
   nsid: string;
   name: string;
-  eighteenplus: 0;
+  eighteenplus: number;
   iconserver: string;
   iconfarm: number;
   members: string;
   pool_count: string;
-  topic_count: number;
-  privacy: number;
+  topic_count: string;
+  privacy: string;
 }
 

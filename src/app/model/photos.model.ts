@@ -5,5 +5,5 @@ export interface IPhotos {
   pages: number;
   perpage: number;
   photo: Array<IPhoto>;
-  total: number;
+  total: string;
 }

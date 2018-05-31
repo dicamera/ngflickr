@@ -6,7 +6,7 @@ import {IPhotos} from '../model/photos.model';
 import {IGroups} from '../model/groups.model';
 import {map} from 'rxjs/internal/operators';
 
-const url = 'https://api.flickr.com/services/rest/';
+export const API_URL = 'https://api.flickr.com/services/rest/';
 const apiKey = '4e5a84333af74e057945cf9474f899f0';
 const format = 'json';
 
@@ -17,8 +17,8 @@ export class FlickrService {
   constructor(private http: HttpClient) {
   }
 
-  searchPhotos(term: string, nextPage?: number): Observable<IPhotos> {
-    return this.http.get<IPhotos>(url, {
+  searchPhotos(term: string, nextPage?: number): Observable<any> {
+    return this.http.get<IPhotos>(API_URL, {
       params: {
         method: 'flickr.photos.search',
         api_key: apiKey,
@@ -26,13 +26,13 @@ export class FlickrService {
         format: format,
         nojsoncallback: '1',
         page: String(nextPage),
-        extras: 'description, license, date_upload, date_taken, owner_name, icon_server, original_format, last_update, geo, tags, machine_tags, o_dims, views, media, path_alias,  url_t'
+        extras: 'description,license,date_upload,date_taken,owner_name,icon_server,original_format,last_update,geo,tags,machine_tags,o_dims,views,media,path_alias,url_t'
       }
     });
   }
 
-  searchGroups(term: string, nextPage?: number): Observable<IGroups> {
-    return this.http.get<IGroups>(url, {
+  searchGroups(term: string, nextPage?: number): Observable<any> {
+    return this.http.get<IGroups>(API_URL, {
       params: {
         method: 'flickr.groups.search',
         api_key: apiKey,
@@ -45,7 +45,7 @@ export class FlickrService {
   }
 
   getGroup(id: string): Observable<any> {
-    return this.http.get<IGroups>(url, {
+    return this.http.get<IGroups>(API_URL, {
       params: {
         method: 'flickr.groups.getInfo',
         api_key: apiKey,
