@@ -18,12 +18,14 @@ export class TabsComponent implements OnInit {
   ];
 
   photosCount$: Observable<number>;
+  groupsCount$: Observable<number>;
 
   constructor(private photoService: PhotosService, private groupService: GroupsService) {
   }
 
   ngOnInit() {
     this.photosCount$ = this.photoService.getPhotoCount();
+    this.groupsCount$ = this.groupService.getGroupCount();
   }
 
 }

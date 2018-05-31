@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {FlickrState} from '../store/reducers';
 import {Store} from '@ngrx/store';
-import {getGroups, getGroup} from '../store/selectors';
+import {getGroups, getGroup, getGroupCount} from '../store/selectors';
 import {FetchGroup, FetchMoreGroups} from '../store/actions';
 import {Observable} from 'rxjs';
 import {IGroup} from '../model/group.model';
@@ -25,5 +25,10 @@ export class GroupsService {
   getGroup(id: string): Observable<any> {
     this.store.dispatch(new FetchGroup(id));
     return this.store.select(getGroup);
+  }
+
+  getGroupCount(): Observable<number> {
+    return this.store.select(getGroupCount);
+
   }
 }

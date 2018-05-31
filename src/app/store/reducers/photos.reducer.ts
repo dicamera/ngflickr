@@ -42,11 +42,11 @@ export function reducer(state = initialState,
 
     case photosActions.FETCH_MORE_PHOTOS_SUCCESS: {
       const data = action.payload;
-
       return {
         ...state,
         loading: false,
         loaded: true,
+        total: data.total,
         photo: action['flush'] ? data['photo'] : state.photo.concat(data['photo'])
       };
     }

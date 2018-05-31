@@ -73,6 +73,7 @@ export function reducer(state = initialState,
         ...state,
         loading: false,
         loaded: true,
+        total: data.total,
         group: action['flush'] ? data['group'] : state.group.concat(data['group'])
       };
     }
