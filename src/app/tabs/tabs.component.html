@@ -2,13 +2,13 @@
   <div mat-tab-link routerLinkActive #rla="routerLinkActive"
        [active]="rla.isActive" routerLink="/photos">
     <mat-icon>trending_up</mat-icon>
-    <span>Photos {{(photosCount$ | async) ? '('+(photosCount$ | async)+')' :''}} </span>
+    <span>Photos {{(photosCount$ | async) !=''  ? '('+(photosCount$ | async)+')' :''}} </span>
   </div>
 
   <div mat-tab-link routerLinkActive #rla="routerLinkActive"
        [active]="rla.isActive" routerLink="/groups">
     <mat-icon>movie</mat-icon>
-    <span>Groups {{(groupsCount$ | async) ? '('+(groupsCount$ | async)+')' :''}}</span>
+    <span>Groups {{(groupsCount$ | async) !='' ? '('+(groupsCount$ | async)+')' :''}}</span>
   </div>
 
 

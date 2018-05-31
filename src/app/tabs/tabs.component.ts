@@ -17,8 +17,8 @@ export class TabsComponent implements OnInit {
     {icon: 'movie', label: 'Groups', location: '/groups'},
   ];
 
-  photosCount$: Observable<number>;
-  groupsCount$: Observable<number>;
+  photosCount$: Observable<string>;
+  groupsCount$: Observable<string>;
 
   constructor(private photoService: PhotosService, private groupService: GroupsService) {
   }
