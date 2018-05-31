@@ -64,9 +64,5 @@ export function reducer(state = initialState,
 }
 
 
-export const getPhotosLoading = (state: PhotosState) => state.loading;
-export const getPhotosLoaded = (state: PhotosState) => state.loaded;
-export const getPhotosCurrentPage = (state: PhotosState) => state.page;
-export const getPhotos = (state: PhotosState) => state.photo;
-export const getPhotoCount = (state: PhotosState) => state.total;
+
 

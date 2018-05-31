@@ -7,7 +7,8 @@ import {IGroups} from '../model/groups.model';
 import {map} from 'rxjs/internal/operators';
 
 const url = 'https://api.flickr.com/services/rest/';
-
+const apiKey = '4e5a84333af74e057945cf9474f899f0';
+const format = 'json';
 
 @Injectable(
   {providedIn: 'root'}
@@ -20,9 +21,9 @@ export class FlickrService {
     return this.http.get<IPhotos>(url, {
       params: {
         method: 'flickr.photos.search',
-        api_key: '4e5a84333af74e057945cf9474f899f0',
+        api_key: apiKey,
         text: term,
-        format: 'json',
+        format: format,
         nojsoncallback: '1',
         page: String(nextPage),
         extras: 'description, license, date_upload, date_taken, owner_name, icon_server, original_format, last_update, geo, tags, machine_tags, o_dims, views, media, path_alias,  url_t'
@@ -34,9 +35,9 @@ export class FlickrService {
     return this.http.get<IGroups>(url, {
       params: {
         method: 'flickr.groups.search',
-        api_key: '4e5a84333af74e057945cf9474f899f0',
+        api_key: apiKey,
         text: term,
-        format: 'json',
+        format: format,
         nojsoncallback: '1',
         page: String(nextPage),
       }
@@ -47,9 +48,9 @@ export class FlickrService {
     return this.http.get<IGroups>(url, {
       params: {
         method: 'flickr.groups.getInfo',
-        api_key: '4e5a84333af74e057945cf9474f899f0',
+        api_key: apiKey,
         group_id: id,
-        format: 'json',
+        format: format,
         nojsoncallback: '1'
       }
     });

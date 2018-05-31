@@ -48,4 +48,3 @@ export function reducer(state = initialState,
   return state;
 }
 
-export const getSearchTerm = (state: SearchState) => state.term;

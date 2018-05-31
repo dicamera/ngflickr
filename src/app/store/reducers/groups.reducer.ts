@@ -89,13 +89,3 @@ export function reducer(state = initialState,
   return state;
 }
 
-
-export const getGroupsLoading = (state: GroupsState) => state.loading;
-export const getGroupsLoaded = (state: GroupsState) => state.loaded;
-export const getGroupsCurrentPage = (state: GroupsState) => state.page;
-export const getGroups = (state: GroupsState) => state.group;
-export const getGroupEntities = (state: GroupsState) => state.entities;
-export const getSelectedEntity = (state: GroupsState) => state.selectedEntity;
-
-export const getGroupCount = (state: GroupsState) => state.total;
-

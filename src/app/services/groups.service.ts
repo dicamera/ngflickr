@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
 import {FlickrState} from '../store/reducers';
 import {Store} from '@ngrx/store';
-// import * as fromStore from '../store';
-
-import {getGroups, getGroup} from '../store/reducers';
+import {getGroups, getGroup} from '../store/selectors';
 import {FetchGroup, FetchMoreGroups} from '../store/actions';
+import {Observable} from 'rxjs';
+import {IGroup} from '../model/group.model';
 
 
 @Injectable(
@@ -14,15 +14,15 @@ export class GroupsService {
   constructor(private store: Store<FlickrState>) {
   }
 
-  getGroups() {
+  getGroups(): Observable<Array<IGroup>> {
     return this.store.select(getGroups);
   }
 
-  getMoreGroups() {
+  getMoreGroups(): void {
     this.store.dispatch(new FetchMoreGroups());
   }
 
-  getGroup(id) {
+  getGroup(id: string): Observable<any> {
     this.store.dispatch(new FetchGroup(id));
     return this.store.select(getGroup);
   }
